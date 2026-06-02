@@ -15,5 +15,11 @@ Base.metadata.create_all(engine)
 
 
 # BEGIN (write your solution here)
-
+def delete_director(sess, director_id):
+    director = sess.get(Director, director_id)
+    if director:
+        sess.delete(director)
+        sess.commit()
+        return True
+    return False
 # END
