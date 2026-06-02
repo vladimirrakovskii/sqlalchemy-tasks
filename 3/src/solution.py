@@ -26,5 +26,12 @@ Base.metadata.create_all(engine)
 
 
 # BEGIN (write your solution here)
-
+def add_books(eng):
+    Session = sessionmaker(eng)
+    first_book = Book(title='To Kill a Mockingbird', author='Harper Lee', published_year=1960)
+    second_book = Book(title='1984', author='George Orwell', published_year=1949)
+    with Session() as session:
+        with session.begin():
+            session.add(first_book)
+            session.add(second_book)
 # END
